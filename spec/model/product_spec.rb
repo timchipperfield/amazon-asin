@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Product, :type => :model do
+RSpec.describe Product, type: :model do
   subject { described_class.new }
 
   describe '#validation', :aggregate_failures do

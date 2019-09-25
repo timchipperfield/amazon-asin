@@ -1,0 +1,16 @@
+<h1>Products#index</h1>
+
+<table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Rank</th>
+    <th>Category</th>
+  </tr>
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.title %></td>
+      <td><%= product.rank %></td>
+      <td><%= product.category %></td>
+    </tr>
+  <% end %>
+</table>
