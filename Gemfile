@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'watir'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -43,6 +44,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'factory_bot_rails'
   gem 'capybara', '~> 2.18'
+  gem 'vcr', '~> 5.0'
+  gem "webmock"
 end
 
 group :development do
