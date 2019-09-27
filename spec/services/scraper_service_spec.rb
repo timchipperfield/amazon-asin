@@ -10,6 +10,8 @@ RSpec.describe ScraperService, type: :model do
 
       it "returns a product hash" do
         expect(scraper.scrape[:raw_category]).to include("Baby Products")
+        expect(scraper.scrape[:raw_rank]).to include("#28 in Baby")
+        expect(scraper.scrape[:raw_title]).to include("Baby Banana Infant Training Toothbrush and Teether")
       end
     end
 

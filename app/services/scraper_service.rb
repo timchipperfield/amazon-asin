@@ -9,7 +9,9 @@ class ScraperService
 
   def scrape
     {
-      raw_category: doc.at_css('span.a-list-item').text,
+      raw_category: doc.at_css("span.a-list-item").text,
+      raw_rank: doc.at_css("#SalesRank").text,
+      raw_title: doc.at_css("meta[name='description']").values.last
     }
   end
 
