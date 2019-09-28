@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_hash)
     if product.save
-      render(:index)
+      redirect_to("index")
     end
   end
 

@@ -1,5 +1,11 @@
 <h1>Products#index</h1>
 
+<%= form_with(url: "/products", method: "post") do %>
+  <%= label_tag(:asin, "Asin") %>
+  <%= text_field_tag(:asin) %>
+  <%= submit_tag("Submit") %>
+<% end %>
+
 <table style="width:100%">
   <tr>
     <th>Title</th>

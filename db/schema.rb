@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20190925035605) do
 
   create_table "products", force: :cascade do |t|
     t.string "asin"
-    t.float "rank"
+    t.string "rank"
     t.string "category"
     t.string "title"
     t.datetime "created_at", null: false
