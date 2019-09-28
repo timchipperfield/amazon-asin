@@ -46,6 +46,7 @@ group :test do
   gem 'capybara', '~> 2.18'
   gem 'vcr', '~> 5.0'
   gem "webmock"
+  gem 'rails-controller-testing'
 end
 
 group :development do
