@@ -11,7 +11,8 @@ class ScraperService
     {
       category: parse_category(doc.at_css("span.a-list-item").text),
       rank: parse_rank(doc.at_css("#SalesRank").text),
-      title: parse_title(doc.at_css("meta[name='description']").values.last)
+      title: parse_title(doc.at_css("meta[name='description']").values.last),
+      asin: asin
     }
   end
 
