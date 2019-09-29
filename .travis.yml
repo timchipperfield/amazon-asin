@@ -1,9 +1,11 @@
 language: ruby
 rvm:
- - 2.6.3
+  - 2.6.3
 before_install:
- - echo "BEFORE INSTALL START"
- - gem install bundler
- - echo "BEFORE INSTALL END"
+  - gem install bundler
+before_script:
+  - psql -c 'create database amazon-asin_test;' -U postgres
 script:
- - mkdir -p spec && bundle exec rspec spec
+  - mkdir -p spec && bundle exec rspec spec
+services:
+  - postgresql
