@@ -11,6 +11,9 @@ A full-stack application that scrapes Amazon pages using their ASIN number, save
 5. run `rails s` via command line
 6. visit `http://localhost:3000/products`
 
+## To Run Tests
+* Run `rspec` on the command line
+
 ## Development Considerations
 * Utilizes Waitr gem to overcome the delayed loading amazon page
 * Nokogiri is used for parsing page contents

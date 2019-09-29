@@ -52,6 +52,22 @@ RSpec.describe ScraperService, type: :model do
           expect(scraped_content[:dimensions]).to eq("5 x 5 x 0.7 inches")
         end
       end
+
+      context "when partial match only", vcr: {cassette_name: "banana_toothbrush_request"} do
+        let(:asin) { "B002QYW8LW" }
+
+        context "when rank missing" do
+          before { allow(scraper).to receive(:scrape_rank).and_return(nil) }
+
+          it { expect(scraper.scrape[:rank]).to eq("unavailable") }
+        end
+
+        context "when dimensions missing" do
+          before { allow(scraper).to receive(:scrape_dimensions).and_return(nil) }
+
+          it { expect(scraper.scrape[:dimensions]).to eq("unavailable") }
+        end
+      end
     end
 
     context "when a fake asin is pased to the service", vcr: {cassette_name: "bad_asin_request"} do
@@ -60,9 +76,10 @@ RSpec.describe ScraperService, type: :model do
       it "creates an empty hash with no error", :aggregate_failures do
         scraped_content = scraper.scrape
         expect(scraped_content[:category]).to eq("")
-        expect(scraped_content[:rank]).to eq("")
         expect(scraped_content[:title]).to include("")
-        expect(scraped_content[:dimensions]).to eq("")
+        # (below) difficult to track fields so allow default value
+        expect(scraped_content[:rank]).to eq("unavailable")
+        expect(scraped_content[:dimensions]).to eq("unavailable")
       end
     end
   end

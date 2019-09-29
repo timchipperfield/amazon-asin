@@ -18,7 +18,8 @@ module ContentParsable
   def parse_rank(raw_rank)
     regex = %r{(?<rank>#.+?)(?=\s\()}
     parsed = parse_raw_content(raw_rank, regex)
-    return "" unless parsed.present?
+    # difficult to track field so allowing default value (below)
+    return "unavailable" unless parsed.present?
 
     parsed[:rank]
   end
@@ -26,7 +27,8 @@ module ContentParsable
   def parse_dimensions(raw_dimensions)
     regex = %r{(?<dimensions>\w.+$)}
     parsed = parse_raw_content(raw_dimensions, regex)
-    return "" unless parsed.present?
+    # difficult to track field so allowing default value (below)
+    return "unavailable" unless parsed.present?
 
     parsed[:dimensions]
   end
