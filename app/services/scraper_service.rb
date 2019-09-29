@@ -20,7 +20,11 @@ class ScraperService
   private
 
   def scrape_dimensions
-    doc.xpath("//*[contains(text(),'Product Dimensions')]/following-sibling::td").try(:text)
+    path = "//*[contains(text(),'Product Dimensions')]/following-sibling::td"
+    main_element_path = doc.xpath(path).try(:text)
+    return main_element_path if main_element_path.present?
+
+    doc.xpath("//*[contains(text(),'Product Dimensions')]/following-sibling::span").try(:text)
   end
 
   def scrape_category

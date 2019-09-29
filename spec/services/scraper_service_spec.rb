@@ -40,18 +40,30 @@ RSpec.describe ScraperService, type: :model do
           expect(scraped_content[:dimensions]).to eq("10.1 x 15.1 x 1 inches")
         end
       end
+
+      context "when asin matches html layout #4 (jewelry)", vcr: {cassette_name: "jewelry_request"} do
+        let(:asin) { "B01GKQI392" }
+
+        it "returns a product hash", :aggregate_failures do
+          scraped_content = scraper.scrape
+          expect(scraped_content[:category]).to eq("Clothing")
+          expect(scraped_content[:rank]).to eq("#74,031 in Clothing, Shoes & Jewelry")
+          expect(scraped_content[:title]).to include("Kemstone Elegant Rose Gold/Silver 2 Tone Multilayer Dangle Earrings")
+          expect(scraped_content[:dimensions]).to eq("5 x 5 x 0.7 inches")
+        end
+      end
     end
-  end
 
-  context "when a fake asin is pased to the service", vcr: {cassette_name: "bad_asin_request"} do
-    let(:asin) { "B002QYW8LW92" }
+    context "when a fake asin is pased to the service", vcr: {cassette_name: "bad_asin_request"} do
+      let(:asin) { "B002QYW8LW92" }
 
-    it "creates an empty hash with no error", :aggregate_failures do
-      scraped_content = scraper.scrape
-      expect(scraped_content[:category]).to eq("")
-      expect(scraped_content[:rank]).to eq("")
-      expect(scraped_content[:title]).to include("")
-      expect(scraped_content[:dimensions]).to eq("")
+      it "creates an empty hash with no error", :aggregate_failures do
+        scraped_content = scraper.scrape
+        expect(scraped_content[:category]).to eq("")
+        expect(scraped_content[:rank]).to eq("")
+        expect(scraped_content[:title]).to include("")
+        expect(scraped_content[:dimensions]).to eq("")
+      end
     end
   end
 end
