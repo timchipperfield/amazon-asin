@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .product-table  {
   border-collapse:collapse;
+  width: 100%;
   border-spacing:0;
   border-color:#aaa;
   margin:0px auto
@@ -145,6 +146,13 @@
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
-}
 
-@media screen and (max-width: 740px) {.product-table {width: auto !important;}.product-table col {width: auto !important;}.screen-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}
+  .product-table col {
+    width: auto !important;
+  }
+  .screen-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: auto 0px;
+  }
+}

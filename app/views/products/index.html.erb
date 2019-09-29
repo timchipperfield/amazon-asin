@@ -17,23 +17,25 @@
       <div class="alert"><%= flash[:alert] %></div>
     <% end %>
   </div>
-  <table class="product-table">
-    <tr>
-      <th class="table-title" colspan="6">Product List</th>
-    </tr>
-    <tr>
-      <th class="column-title">Title</th>
-      <th class="column-title">Rank</th>
-      <th class="column-title">Category</th>
-      <th class="column-title">Dimensions</th>
-    </tr>
-    <% @products.each do |product| %>
+  <div class="table-container">
+    <table class="product-table">
       <tr>
-        <td class=<%=cell_klass(product)%>><%= product.title %></td>
-        <td class=<%=cell_klass(product)%>><%= product.rank %></td>
-        <td class=<%=cell_klass(product)%>><%= product.category %></td>
-        <td class=<%=cell_klass(product)%>><%= product.dimensions %></td>
+        <th class="table-title" colspan="6">Product List</th>
       </tr>
-    <% end %>
-  </table>
+      <tr>
+        <th class="column-title">Title</th>
+        <th class="column-title">Rank</th>
+        <th class="column-title">Category</th>
+        <th class="column-title">Dimensions</th>
+      </tr>
+      <% @products.each do |product| %>
+        <tr>
+          <td class=<%=cell_klass(product)%>><%= product.title %></td>
+          <td class=<%=cell_klass(product)%>><%= product.rank %></td>
+          <td class=<%=cell_klass(product)%>><%= product.category %></td>
+          <td class=<%=cell_klass(product)%>><%= product.dimensions %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 </div>
