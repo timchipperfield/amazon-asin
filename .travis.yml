@@ -4,10 +4,13 @@ rvm:
 before_install:
   - gem install bundler
 before_script:
+  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
   - psql -c 'create database "amazon-asin_test";' -U postgres
 script:
   - mkdir -p spec && bundle exec rspec spec
 services:
   - postgresql
 addons:
-  chrome: stable
+  apt:
+    - google-chrome-stable
+    - chromium-chromedriver
