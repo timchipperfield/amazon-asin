@@ -1,0 +1,131 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: http://127.0.0.1:9528/session
+    body:
+      encoding: UTF-8
+      string: '{"desiredCapabilities":{"browserName":"chrome","version":"","platform":"ANY","javascriptEnabled":true,"cssSelectorsEnabled":true,"takesScreenshot":false,"nativeEvents":false,"rotatable":false,"goog:chromeOptions":{"args":["--headless","--disable-gpu"]}},"capabilities":{"firstMatch":[{"browserName":"chrome","goog:chromeOptions":{"args":["--headless","--disable-gpu"]}}]}}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.142.4 (ruby macosx)
+      Content-Length:
+      - '372'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '688'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"value":{"capabilities":{"acceptInsecureCerts":false,"browserName":"chrome","browserVersion":"77.0.3865.90","chrome":{"chromedriverVersion":"77.0.3865.40
+        (f484704e052e0b556f8030b65b953dce96503217-refs/branch-heads/3865@{#442})","userDataDir":"/var/folders/jt/sw87myz574l4x42760rl5fy80000gn/T/.com.google.Chrome.oOsXWU"},"goog:chromeOptions":{"debuggerAddress":"localhost:59256"},"networkConnectionEnabled":false,"pageLoadStrategy":"normal","platformName":"mac
+        os x","proxy":{},"setWindowRect":true,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss
+        and notify"},"sessionId":"ff7f289cca0334cbbbdd1f27d12e22a3"}}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2019 05:18:37 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9528/session/ff7f289cca0334cbbbdd1f27d12e22a3/url
+    body:
+      encoding: UTF-8
+      string: '{"url":"http://www.amazon.com/dp/B002QYW8LW92"}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.142.4 (ruby macosx)
+      Content-Length:
+      - '47'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '14'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"value":null}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2019 05:18:38 GMT
+- request:
+    method: post
+    uri: http://127.0.0.1:9528/session/ff7f289cca0334cbbbdd1f27d12e22a3/execute/sync
+    body:
+      encoding: UTF-8
+      string: '{"script":"var source = document.documentElement.outerHTML;if (!source)
+        { source = new XMLSerializer().serializeToString(document); }return source;","args":[]}'
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json; charset=UTF-8
+      User-Agent:
+      - selenium/3.142.4 (ruby macosx)
+      Content-Length:
+      - '159'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2653'
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: '{"value":"\u003Chtml>\u003Chead>\n    \u003Cmeta charset=\"utf-8\">\n    \u003Cmeta
+        http-equiv=\"x-ua-compatible\" content=\"ie=edge\">\n    \u003Cmeta name=\"viewport\"
+        content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    \u003Ctitle>\n      Page
+        Not Found\n    \u003C/title>\n    \u003Cstyle>\n      html,body{padding:0;margin:0}img{border:0}#a{background:#232f3e;padding:11px
+        11px 11px 192px}#b{position:absolute;left:22px;top:12px}#c{position:relative;max-width:800px;padding:0
+        40px 0 0}#e,#f{height:35px;border:0;font-size:1em}#e{width:100%;margin:0;padding:0
+        10px;border-radius:4px 0 0 4px}#f{cursor:pointer;background:#febd69;font-weight:bold;border-radius:0
+        4px 4px 0;-webkit-appearance:none;position:absolute;top:0;right:0;padding:0
+        12px}@media(max-width:500px){#a{padding:55px 10px 10px}#b{left:6px}}#g{text-align:center;margin:30px
+        0}#g img{max-width:90%}#d{display:none}#d[src]{display:inline}\n    \u003C/style>\n  \u003C/head>\n  \u003Cbody>\n    \u003C!--\n    To
+        discuss automated access to Amazon data please contact api-services-support@amazon.com.\n\nFor
+        information about migrating to our APIs refer to our Marketplace APIs at https://developer.amazonservices.com/ref=rm_5_sv,
+        or our Product Advertising API at https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html/ref=rm_5_ac
+        for advertising use cases.\n    -->\n  \u003Ca href=\"/\">\n    \u003Cimg
+        id=\"b\" src=\"https://images-na.ssl-images-amazon.com/images/G/01/error/logo._CB294837474_.png\"
+        alt=\"Amazon\">\n  \u003C/a>\n  \u003Cform id=\"a\" accept-charset=\"utf-8\"
+        action=\"/s\" method=\"GET\" role=\"search\">\n    \u003Cdiv id=\"c\">\n      \u003Cinput
+        id=\"e\" name=\"field-keywords\" placeholder=\"Search\">\n      \u003Cinput
+        id=\"f\" type=\"submit\" value=\"Go\">\n    \u003C/div>\n  \u003C/form>\n    \u003Cdiv
+        id=\"g\">\n      \u003Cdiv>\n        \u003Ca href=\"/\">\n          \u003Cimg
+        src=\"https://images-na.ssl-images-amazon.com/images/G/01/error/en_US/title._CB466097777_.png\"
+        alt=\"Sorry! We couldn''t find that page. Try searching or go to Amazon''s
+        home page.\">\n        \u003C/a>\n      \u003C/div>\n      \u003Ca href=\"/dogsofamazon\"
+        target=\"_blank\" rel=\"noopener noreferrer\">\n        \u003Cimg id=\"d\"
+        alt=\"Dogs of Amazon\" src=\"https://images-na.ssl-images-amazon.com/images/G/01/error/en_US/141._CB465791933_.jpg\">\n      \u003C/a>\n      \u003Cscript>\n        document.getElementById(\"d\").src=\"https://images-na.ssl-images-amazon.com/images/G/01/error/en_US/\"
+        + (Math.floor(Math.random() *200) + 1) + \"._CB465791933_.jpg\";\n      \u003C/script>\n    \u003C/div>\n  \n\u003C/body>\u003C/html>"}'
+    http_version: 
+  recorded_at: Sun, 29 Sep 2019 05:18:38 GMT
+recorded_with: VCR 5.0.0
