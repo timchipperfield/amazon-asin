@@ -4,4 +4,5 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :title, presence: true
   validates :rank, presence: true
+  validates :dimensions, presence: true
 end

@@ -23,4 +23,13 @@ module ContentParsable
 
     matches[:rank]
   end
+
+  def parse_dimensions(raw_dimensions)
+    regex = %r{(?<dimensions>\w.+$)}
+
+    matches = raw_dimensions.match(regex)
+    return "" unless matches
+
+    matches[:dimensions]
+  end
 end
