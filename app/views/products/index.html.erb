@@ -1,22 +1,31 @@
-<h1>Products#index</h1>
-
-<%= form_with(url: "/products", method: "post") do %>
-  <%= label_tag(:asin, "Asin") %>
-  <%= text_field_tag(:asin) %>
-  <%= submit_tag("Submit") %>
-<% end %>
-
-<table style="width:100%">
-  <tr>
-    <th>Title</th>
-    <th>Rank</th>
-    <th>Category</th>
-  </tr>
-  <% @products.each do |product| %>
+  
+<div class="screen-wrap">
+  <div class="topnav">
+    <a class="active" href="#home">Amazon ASIN Product Finder</a>
+    <div class="search-container">
+      <%= form_with(url: "/products", method: "post") do %>
+        <%= text_field_tag(:asin, nil, placeholder: "Search..") %>
+        <%= submit_tag("Submit ASIN") %>
+      <% end %>
+    </div>
+  </div>
+  <table class="product-table">
     <tr>
-      <td><%= product.title %></td>
-      <td><%= product.rank %></td>
-      <td><%= product.category %></td>
+      <th class="table-title" colspan="6">Product List</th>
     </tr>
-  <% end %>
-</table>
+    <tr>
+      <th class="column-title">Title</th>
+      <th class="column-title">Rank</th>
+      <th class="column-title">Category</th>
+      <th class="column-title">Dimensions</th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td class=<%=cell_klass(product)%>><%= product.title %></td>
+        <td class=<%=cell_klass(product)%>><%= product.rank %></td>
+        <td class=<%=cell_klass(product)%>><%= product.category %></td>
+        <td class=<%=cell_klass(product)%>><%= product.dimensions %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
