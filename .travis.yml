@@ -1,3 +1,9 @@
 language: ruby
 rvm:
  - 2.5.0
+before_install:
+ - echo "BEFORE INSTALL START"
+ - gem install bundler
+ - echo "BEFORE INSTALL END"
+script:
+ - mkdir -p spec && bundle exec rspec spec
