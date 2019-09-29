@@ -21,3 +21,6 @@ A full-stack application that scrapes Amazon pages using their ASIN number, save
 
 ## Testing Considerations
 * Uses VCR to record and real http responses. This is useful for ensuring that the application appropriately handles a variety of page layouts and that all parsing is working as it should.
+
+## Screenshot
+![Screenshot](app/assets/images/app-screenshot.png)
