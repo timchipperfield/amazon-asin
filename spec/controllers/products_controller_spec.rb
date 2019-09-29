@@ -12,12 +12,21 @@ RSpec.describe ProductsController, type: :controller do
   end
 
   describe "#create" do
-    context "when the asin matches a product", vcr: {cassette_name: "success_request"} do
+    context "when the asin matches html layout #1", vcr: {cassette_name: "banana_toothbrush_request"} do
       let(:params) { {asin: "B002QYW8LW"} }
 
       it "creates a new product using the asin page contents" do
         expect { post :create, params: params }.to change(Product, :count).by(1)
-        expect(response).to render_template(:index)
+        expect(response).to redirect_to(action: :index)
+      end
+    end
+
+    context "when asin matches html layout #2", vcr: {cassette_name: "car_cell_holder_request"} do
+      let(:params) { {asin: "B073R68TSH"} }
+
+      it "creates a new product using the asin page contents" do
+        expect { post :create, params: params }.to change(Product, :count).by(1)
+        expect(response).to redirect_to(action: :index)
       end
     end
   end

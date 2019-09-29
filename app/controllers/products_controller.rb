@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_hash)
     if product.save
-      redirect_to("index")
+      redirect_back(fallback_location: products_url)
     end
   end
 

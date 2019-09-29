@@ -10,13 +10,21 @@ class ScraperService
   def scrape
     {
       category: parse_category(doc.at_css("span.a-list-item").text),
-      rank: parse_rank(doc.at_css("#SalesRank").text),
-      title: parse_title(doc.at_css("meta[name='description']").values.last),
+      rank: parse_rank(scrape_rank),
+      title: parse_title(doc.title),
+      # TODO: dimensions: parse_dimensions(###)
       asin: asin
     }
   end
 
   private
+
+  def scrape_rank
+    main_element_path = doc.at_css("#SalesRank").try(:text)
+    return main_element_path if main_element_path.present?
+
+    doc.xpath("//table[@class='a-keyvalue prodDetTable']/tbody/tr[7]/td").try(:text)
+  end
 
   def retrieve_doc
     browser = Watir::Browser.new(:chrome, headless: true)

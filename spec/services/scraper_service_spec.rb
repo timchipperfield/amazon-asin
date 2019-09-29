@@ -5,7 +5,7 @@ RSpec.describe ScraperService, type: :model do
 
   describe "#scrape" do
 
-    context "when a real asin is passed to the service", vcr: {cassette_name: "success_request"} do
+    context "when a real asin is passed to the service", vcr: {cassette_name: "banana_toothbrush_request"} do
       let(:asin) { "B002QYW8LW" }
 
       it "returns a product hash", :aggregate_failures do

@@ -1,6 +1,6 @@
 module ContentParsable
   def parse_title(raw_title)
-    regex = %r{:\s(?<title>.+)\s:}
+    regex = %r{:\s(?<title>.+)\s*:}
     matches = raw_title.match(regex)
     return "" unless matches
 
