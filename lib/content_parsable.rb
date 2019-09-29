@@ -1,43 +1,41 @@
 module ContentParsable
   def parse_title(raw_title)
-    return "" unless raw_title
-
     regex = %r{:\s(?<title>.+)\s*:}
-    matches = raw_title.match(regex)
-    return "" unless matches
+    parsed = parse_raw_content(raw_title, regex)
+    return "" unless parsed.present?
 
-    matches[:title]
+    parsed[:title]
   end
 
   def parse_category(raw_category)
-    return "" unless raw_category
-
     regex = %r{(?<category>\w+(.\w+)*)}
-    matches = raw_category.match(regex)
-    return "" unless matches
+    parsed = parse_raw_content(raw_category, regex)
+    return "" unless parsed.present?
 
-    matches[:category]
+    parsed[:category]
   end
 
-
   def parse_rank(raw_rank)
-    return "" unless raw_rank
-
     regex = %r{(?<rank>#.+?)(?=\s\()}
-    matches = raw_rank.match(regex)
-    return "" unless matches
+    parsed = parse_raw_content(raw_rank, regex)
+    return "" unless parsed.present?
 
-    matches[:rank]
+    parsed[:rank]
   end
 
   def parse_dimensions(raw_dimensions)
-    return "" unless raw_dimensions
-
     regex = %r{(?<dimensions>\w.+$)}
+    parsed = parse_raw_content(raw_dimensions, regex)
+    return "" unless parsed.present?
 
-    matches = raw_dimensions.match(regex)
-    return "" unless matches
+    parsed[:dimensions]
+  end
 
-    matches[:dimensions]
+  private
+
+  def parse_raw_content(raw_content, regex)
+    return "" unless raw_content
+
+    raw_content.match(regex)
   end
 end

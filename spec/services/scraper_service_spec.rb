@@ -22,7 +22,7 @@ RSpec.describe ScraperService, type: :model do
 
         it "returns a product hash", :aggregate_failures do
           scraped_content = scraper.scrape
-          expect(scraped_content[:category]).to eq("cell Phones")
+          expect(scraped_content[:category]).to eq("Cell Phones")
           expect(scraped_content[:rank]).to eq("#34 in Cell Phones & Accessories")
           expect(scraped_content[:title]).to include("Beam Electronics Universal Smartphone Car Air Vent Mount Holder")
           expect(scraped_content[:dimensions]).to eq("2.7 x 3.4 x 5.5 inches")
