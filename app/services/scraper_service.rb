@@ -12,7 +12,7 @@ class ScraperService
       category: parse_category(scrape_category),
       rank: parse_rank(scrape_rank),
       title: parse_title(doc.title),
-      dimensions: parse_dimensions(scrape_dimensions.try(:text)),
+      dimensions: parse_dimensions(scrape_dimensions),
       asin: asin
     }
   end
@@ -20,7 +20,7 @@ class ScraperService
   private
 
   def scrape_dimensions
-    doc.xpath("//*[contains(text(),'Product Dimensions')]/following-sibling::td")
+    doc.xpath("//*[contains(text(),'Product Dimensions')]/following-sibling::td").try(:text)
   end
 
   def scrape_category

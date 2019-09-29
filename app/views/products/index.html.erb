@@ -1,4 +1,4 @@
-  
+
 <div class="screen-wrap">
   <div class="topnav">
     <a class="active" href="#home">Amazon ASIN Product Finder</a>
@@ -8,6 +8,14 @@
         <%= submit_tag("Submit ASIN") %>
       <% end %>
     </div>
+  </div>
+  <div>
+    <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="alert"><%= flash[:alert] %></div>
+    <% end %>
   </div>
   <table class="product-table">
     <tr>

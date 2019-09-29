@@ -18,6 +18,16 @@ RSpec.describe ProductsController, type: :controller do
       it "creates a new product using the asin page contents" do
         expect { post :create, params: params }.to change(Product, :count).by(1)
         expect(response).to redirect_to(action: :index)
+        expect( subject.request.flash[:success] )
+      end
+    end
+
+    context "when the asin dos not match a real product", vcr: {cassette_name: "bad_asin_request"} do
+      let(:params) { {asin: "B06XD3LXXK"} }
+
+      it "redirect back to index" do
+        expect { post :create, params: params }.not_to change(Product, :count)
+        expect(response).to redirect_to(action: :index)
       end
     end
   end

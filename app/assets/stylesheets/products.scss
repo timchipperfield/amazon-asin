@@ -107,7 +107,27 @@
 }
 
 .topnav .search-container button:hover {
-background: #ccc;
+  background: #ccc;
+}
+
+.notice {
+  color: green;
+  float: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+}
+
+.alert {
+  color: red;
+  float: none;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
 }
 
 @media screen and (max-width: 600px) {

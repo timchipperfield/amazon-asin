@@ -6,6 +6,10 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_hash)
     if product.save
+      flash[:notice] = "Product successfully saved!"
+      redirect_back(fallback_location: products_url)
+    else
+      flash[:alert] = "Sorry, we can't locate this product"
       redirect_back(fallback_location: products_url)
     end
   end
